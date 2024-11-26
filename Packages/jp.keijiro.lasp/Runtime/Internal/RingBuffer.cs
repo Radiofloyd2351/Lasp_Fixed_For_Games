@@ -73,6 +73,10 @@ namespace Lasp
 
             var head_rp = new Span<byte>(_buffer, 0, rp);
             var wp_tail = new Span<byte>(_buffer, wp, Capacity - wp);
+            if(wp_tail.length > length){
+                UnityEngine.Debug.Log("Tail is too long);
+                return;
+            }
 
             if (rp > wp)
             {
